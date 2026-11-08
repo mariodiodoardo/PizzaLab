@@ -62,3 +62,18 @@ The PWA caches static assets for offline use after installation/first load. No d
 - `src/style.css`: responsive design.
 - `tests/engine.test.ts`: calculation checks.
 - `vite.config.ts`: PWA manifest and offline asset caching.
+
+## PizzaLab V2 updates
+
+- Italian / English language switcher (preference saved locally).
+- Full preparation guide, with method-specific mixing instructions and detailed stages through baking.
+- Pizza dough tray or individual container guidance.
+- Fermentation timing sliders hidden in an expandable panel; temperatures remain visible.
+- Default hand-mixing rests counted only once.
+
+### Build and deployment
+
+Install dependencies with `npm install`, run `npm test` and `npm run build`.
+Cloudflare Pages: preset **React (Vite)**, build command `npm run build`, output directory `dist`.
+
+**Validation note:** The yeast model remains experimental. The build was not executable in the authoring environment because package installation timed out. Please run the build locally or let Cloudflare Pages run it and inspect any reported errors before replacing a working deployment.

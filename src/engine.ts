@@ -32,11 +32,11 @@ export function calculate(s:Settings){
  const yeastRatio=s.yeast==='fresh'?freshRatio:freshRatio/3;
  const flour=dough/(1+s.hydration/100+s.salt/100+s.oil/100+yeastRatio);
  const add=(hours:number)=>new Date(start.getTime()+hours*hour);
- const events:Event[]=[{label:'Inizia a impastare',at:add(0),detail:methodNames[s.method]},{label:'Riposo e pieghe',at:add(s.mixMinutes/60),detail:`${s.restMinutes} minuti`},{label:'Puntata in massa',at:add((s.mixMinutes+s.restMinutes)/60),detail:`${s.bulkMinutes} minuti a ${s.roomTemp}°C`},{label:'Forma i panetti',at:add((s.mixMinutes+s.restMinutes+s.bulkMinutes)/60),detail:`${s.balls} panetti da ${s.ballWeight} g`}];
+ const events:Event[]=[{label:'Inizia a impastare',at:add(0),detail:methodNames[s.method]},...(s.restMinutes>0?[{label:'Riposo e pieghe',at:add(s.mixMinutes/60),detail:`${s.restMinutes} minuti`}]:[]),{label:'Puntata in massa',at:add((s.mixMinutes+s.restMinutes)/60),detail:`${s.bulkMinutes} minuti a ${s.roomTemp}°C`},{label:'Forma i panetti',at:add((s.mixMinutes+s.restMinutes+s.bulkMinutes)/60),detail:`${s.balls} panetti da ${s.ballWeight} g`}];
  if(s.mode==='cold')events.push({label:'Metti in frigorifero',at:add(pre),detail:`${cold.toFixed(1)} ore a ${s.fridgeTemp}°C`},{label:'Togli dal frigorifero',at:add(pre+cold),detail:`${final.toFixed(1)} ore a ${s.roomTemp}°C`});
  else events.push({label:'Appretto a temperatura ambiente',at:add(pre),detail:`${final.toFixed(1)} ore a ${s.roomTemp}°C`});
  events.push({label:'Stesura e cottura',at:end,detail:'Pizza pronta'});
  return {errors,total,cold,final,pre,flour,water:flour*s.hydration/100,salt:flour*s.salt/100,oil:flour*s.oil/100,yeast:flour*yeastRatio,events,referenceExposure,exposure};
 }
 export function localDatetime(d:Date){const pad=(n:number)=>String(n).padStart(2,'0');return `${d.getFullYear()}-${pad(d.getMonth()+1)}-${pad(d.getDate())}T${pad(d.getHours())}:${pad(d.getMinutes())}`;}
-export function defaults():Settings{const d=new Date();d.setMinutes(0,0,0);const tomorrow=new Date(d.getTime()+24*hour);tomorrow.setHours(12,30,0,0);d.setHours(12,0,0,0);return {balls:6,ballWeight:270,hydration:65,salt:3,oil:0,yeast:'fresh',method:'hand',mode:'cold',start:localDatetime(d),end:localDatetime(tomorrow),mixMinutes:40,restMinutes:40,bulkMinutes:60,ballRestMinutes:30,finalHours:3.5,roomTemp:22,fridgeTemp:4};}
+export function defaults():Settings{const d=new Date();d.setMinutes(0,0,0);const tomorrow=new Date(d.getTime()+24*hour);tomorrow.setHours(12,30,0,0);d.setHours(12,0,0,0);return {balls:6,ballWeight:270,hydration:65,salt:3,oil:0,yeast:'fresh',method:'hand',mode:'cold',start:localDatetime(d),end:localDatetime(tomorrow),mixMinutes:40,restMinutes:0,bulkMinutes:60,ballRestMinutes:30,finalHours:3.5,roomTemp:22,fridgeTemp:4};}
