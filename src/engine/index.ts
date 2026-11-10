@@ -3,9 +3,18 @@ import {schedule,localDatetime} from './scheduling';
 import {ingredients} from './ingredients';
 import {yeastModels} from './fermentation';
 export type {Settings,Method,Mode,Yeast,YeastDisplay} from './types';
+export type {Event} from './types';
+
+/** Public result contract used by React and the tests. */
+export interface CalculationResult {
+ errors:string[];total:number;pre:number;final:number;cold:number;
+ events:import('./types').Event[];flour:number;water:number;salt:number;oil:number;
+ yeast:number;txYeast:number|null;exposure:number;
+}
+
 export {localDatetime} from './scheduling';
 export {methodMinutes} from '../guides/methods';
-export function calculate(s:Settings){
+export function calculate(s:Settings):CalculationResult{
  const {total,pre,final,cold,events}=schedule(s);const errors:string[]=[];
  if(!Number.isFinite(total)||total<=0)errors.push('La data di fine deve essere successiva all’inizio.');
  if(!Number.isFinite(cold)||cold<0||final<=0)errors.push('Tempo insufficiente per le fasi impostate.');

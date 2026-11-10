@@ -28,3 +28,6 @@ The images in `public/images` are **generated illustrative placeholders**, not t
 ## Research
 
 Python exploratory code and the user's source charts are preserved under `research/fermentation/txcraig_full`.
+
+
+See [deployment troubleshooting](docs/DEPLOY.md).
