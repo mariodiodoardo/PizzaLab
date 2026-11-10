@@ -9,7 +9,7 @@ function App(){
  const [lang,setLang]=useState<Lang>(()=>{try{return localStorage.getItem('pizzametric-language')==='en'?'en':'it'}catch{return 'it'}});
  const [container,setContainer]=useState<Container>('tray');
  const [advanced,setAdvanced]=useState(false);
- const [yeastDisplay,setYeastDisplay]=useState<YeastDisplay>('both');
+ const [yeastDisplay,setYeastDisplay]=useState<YeastDisplay>('q10');
  const [tab,setTab]=useState<'ingredients'|'timeline'|'guide'>('ingredients');
  const [phase,setPhase]=useState(0);
  const [copied,setCopied]=useState(false);
