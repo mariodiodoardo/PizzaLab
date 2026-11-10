@@ -1,0 +1,20 @@
+test_anchor (test_model.ModelTests.test_anchor) ... ok
+test_bounds (test_model.ModelTests.test_bounds) ... ok
+test_monotonic_yeast (test_model.ModelTests.test_monotonic_yeast) ... ok
+test_progress_target (test_model.ModelTests.test_progress_target) ... ok
+test_reference_close (test_model.ModelTests.test_reference_close) ... ok
+test_second_dose (test_model.ModelTests.test_second_dose) ... ok
+test_48h_anchor (test_piecewise.PiecewiseTests.test_48h_anchor) ... ok
+test_monotonic (test_piecewise.PiecewiseTests.test_monotonic) ... ok
+test_progress_solve (test_piecewise.PiecewiseTests.test_progress_solve) ... ok
+test_selected_grid_cells (test_piecewise.PiecewiseTests.test_selected_grid_cells) ... ok
+test_duration (test_thermal.ThermalTests.test_duration) ... ok
+test_near_instant_approaches_baseline (test_thermal.ThermalTests.test_near_instant_approaches_baseline) ... ok
+test_positive_prediction (test_thermal.ThermalTests.test_positive_prediction) ... ok
+test_residuals_sorted (test_thermal.ThermalTests.test_residuals_sorted) ... ok
+test_temperature_bounds (test_thermal.ThermalTests.test_temperature_bounds) ... ok
+
+----------------------------------------------------------------------
+Ran 15 tests in 1.691s
+
+OK

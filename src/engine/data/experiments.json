@@ -1,0 +1,35 @@
+[
+  {
+    "id": "001",
+    "flourG": 964,
+    "freshYeastG": 3,
+    "freshYeastRangeG": null,
+    "roomTempC": 22,
+    "fridgeTempC": 4,
+    "coldHours": 25,
+    "finalHours": 3.5,
+    "initialMinutes": 130,
+    "fdtC": null,
+    "result": "good",
+    "useForCalibration": true,
+    "notes": "Initial rest 40 min + bulk 60 min + ball rest 30 min; verify method overlap before additional calibration."
+  },
+  {
+    "id": "002",
+    "flourG": 963,
+    "freshYeastG": null,
+    "freshYeastRangeG": [
+      3,
+      4
+    ],
+    "roomTempC": 22,
+    "fridgeTempC": 4,
+    "coldHours": 17.5,
+    "finalHours": 3,
+    "initialMinutes": 130,
+    "fdtC": null,
+    "result": "near_overproofed",
+    "useForCalibration": false,
+    "notes": "Yeast amount uncertain; do not fit."
+  }
+]
